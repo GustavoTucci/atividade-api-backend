@@ -80,5 +80,11 @@ O `data.json` e adequado para fins didaticos e prototipos. Para producao, recome
 
 ## Deploy
 
+- No Render, configure:
+  - **Build Command:** `npm install`
+  - **Start Command:** `npm start`
+  - **Root Directory:** deixe vazio quando o repositorio contiver somente o backend
 - API publicada: [INSIRA O LINK DO DEPLOY]
 - Repositorio: [INSIRA O LINK DO GITHUB]
+
+> Nao use `node index.js`: o arquivo principal deste projeto e `server.js`.
