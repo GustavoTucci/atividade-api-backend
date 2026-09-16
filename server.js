@@ -8,15 +8,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const FILE = 'data.json';
 
-// Permite receber JSON
-app.use(bodyParser.json());
-
-// Libera as requisicoes do frontend, incluindo o preflight OPTIONS.
-app.use(cors({
+const corsOptions = {
   origin: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
-}));
+};
+
+// Libera as requisicoes do frontend, incluindo o preflight OPTIONS.
+app.use(cors(corsOptions));
+app.options('/api/notes', cors(corsOptions));
+app.options('/api/notes/:id', cors(corsOptions));
+
+// Permite receber JSON
+app.use(bodyParser.json());
 
 // Função para ler arquivo
 function readNotes() {
